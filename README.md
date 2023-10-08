@@ -64,7 +64,13 @@ flink 本地 standalone模式
    
    `-pyexec`指定python解析器,使用导出的conda环境的话，指定`{conda_env_name}/bin/python`即可
 
-4. 打开测试的网页服务
+   举个例子：
+   `tar -xzvf online-learning.tar.gz -C online-learning` # 将压缩好的python环境解压到online-learning文件夹中
+   `flink run -m localhost:8081 -py stream.py -pyexec online-learning/bin/python`
+
+   使用压缩好的python环境可能无法运行此项目的网页测试程序，根据提示在宿主机上下载相关依赖即可。
+
+5. 打开测试的网页服务
 
    `nohup python model_server.py  >logs/model_server.out 2>&1 &`
 
